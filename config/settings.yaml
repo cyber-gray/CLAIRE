@@ -1,0 +1,53 @@
+# CLAIRE Configuration Settings
+
+# Application Settings
+app:
+  name: "CLAIRE"
+  full_name: "Compliance & Legal AI Risk Engine"
+  version: "0.1.0"
+  wake_word: "claire"
+  conversation_timeout: 45
+
+# Voice Settings
+voice:
+  enabled: true
+  mic_index: 2  # MacBook Pro Microphone
+  speech_rate: 180
+  speech_volume: 1.0
+  preferred_voice: "jamie"  # or null for default
+
+# LLM Settings
+llm:
+  provider: "ollama"
+  model: "llama3.2:latest"
+  temperature: 0.1  # Lower for more consistent compliance responses
+  max_tokens: 2048
+  reasoning: false
+
+# Vector Database Settings
+vector_db:
+  provider: "chroma"
+  collection_name: "ai_legal_corpus"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  chunk_size: 1000
+  chunk_overlap: 200
+
+# Corpus Settings
+corpus:
+  base_path: "./corpus"
+  supported_formats: [".pdf", ".txt", ".md", ".docx"]
+  auto_update: false
+  
+# Export Settings
+export:
+  formats: ["markdown", "pdf"]
+  include_citations: true
+  include_timestamps: true
+  output_path: "./exports"
+
+# Logging
+logging:
+  level: "INFO"
+  file_path: "./logs/claire.log"
+  max_file_size: "10MB"
+  backup_count: 5

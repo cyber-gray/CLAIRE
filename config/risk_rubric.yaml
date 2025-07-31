@@ -1,0 +1,201 @@
+# CLAIRE Risk Assessment Rubric
+# This YAML defines the framework for scoring AI system compliance risks
+
+metadata:
+  version: "1.0"
+  last_updated: "2025-07-30"
+  description: "AI compliance risk scoring framework for CLAIRE"
+  frameworks_covered: ["EU AI Act", "NIST AI RMF", "ISO 42001", "OECD AI Principles"]
+
+# Risk Categories and Weightings
+risk_categories:
+  
+  # High-Level Risk Classification (EU AI Act inspired)
+  ai_system_risk_level:
+    weight: 0.25
+    description: "Primary risk classification based on AI system characteristics"
+    criteria:
+      prohibited:
+        score: 100
+        description: "Systems that pose unacceptable risk (social scoring, manipulation, etc.)"
+        examples: ["social_scoring", "dark_patterns", "subliminal_manipulation"]
+      
+      high_risk:
+        score: 80
+        description: "High-risk AI systems requiring conformity assessment"
+        examples: ["biometric_identification", "critical_infrastructure", "employment_decisions", "education_assessment", "credit_scoring", "law_enforcement"]
+      
+      limited_risk:
+        score: 40
+        description: "Systems requiring transparency obligations"
+        examples: ["chatbots", "deepfakes", "emotion_recognition"]
+      
+      minimal_risk:
+        score: 20
+        description: "Systems with minimal regulatory requirements"
+        examples: ["spam_filters", "ai_games", "inventory_management"]
+
+  # Data Governance (NIST AI RMF MAP function)
+  data_governance:
+    weight: 0.20
+    description: "Quality and appropriateness of training and operational data"
+    criteria:
+      poor:
+        score: 80
+        indicators: ["no_data_documentation", "biased_datasets", "unlabeled_sources", "privacy_violations"]
+      
+      fair:
+        score: 60
+        indicators: ["basic_documentation", "some_bias_testing", "mixed_data_quality"]
+      
+      good:
+        score: 30
+        indicators: ["documented_lineage", "bias_testing", "quality_controls", "privacy_compliant"]
+      
+      excellent:
+        score: 10
+        indicators: ["comprehensive_documentation", "continuous_monitoring", "fairness_validation", "gdpr_compliant"]
+
+  # Model Transparency & Explainability
+  transparency:
+    weight: 0.15
+    description: "Ability to explain and understand model decisions"
+    criteria:
+      black_box:
+        score: 90
+        description: "No explainability features"
+      
+      limited:
+        score: 60
+        description: "Basic model documentation only"
+      
+      moderate:
+        score: 40
+        description: "Some interpretability features"
+      
+      high:
+        score: 20
+        description: "Comprehensive explainability and audit trail"
+
+  # Security & Robustness (NIST AI RMF GOVERN/MANAGE)
+  security:
+    weight: 0.15
+    description: "Protection against adversarial attacks and failures"
+    criteria:
+      vulnerable:
+        score: 85
+        indicators: ["no_adversarial_testing", "single_point_failure", "no_monitoring"]
+      
+      basic:
+        score: 50
+        indicators: ["basic_security", "some_testing", "limited_monitoring"]
+      
+      robust:
+        score: 25
+        indicators: ["adversarial_testing", "redundancy", "continuous_monitoring", "incident_response"]
+
+  # Human Oversight (EU AI Act Article 14)
+  human_oversight:
+    weight: 0.15
+    description: "Level of human control and intervention capability"
+    criteria:
+      none:
+        score: 95
+        description: "Fully automated with no human intervention"
+      
+      minimal:
+        score: 70
+        description: "Human-on-the-loop (monitoring only)"
+      
+      moderate:
+        score: 40
+        description: "Human-in-the-loop (regular intervention points)"
+      
+      full:
+        score: 15
+        description: "Human-over-the-loop (meaningful control)"
+
+  # Impact Assessment
+  impact_scope:
+    weight: 0.10
+    description: "Breadth and severity of potential impact"
+    criteria:
+      critical:
+        score: 90
+        description: "Life-or-death decisions, fundamental rights"
+        domains: ["healthcare_diagnosis", "autonomous_vehicles", "criminal_justice"]
+      
+      high:
+        score: 65
+        description: "Significant personal or economic impact"
+        domains: ["employment", "credit", "education", "insurance"]
+      
+      medium:
+        score: 35
+        description: "Moderate personal impact"
+        domains: ["recommendations", "content_moderation", "marketing"]
+      
+      low:
+        score: 15
+        description: "Minimal personal impact"
+        domains: ["entertainment", "productivity_tools", "internal_operations"]
+
+# Scoring Thresholds
+risk_thresholds:
+  critical: 80  # Immediate action required
+  high: 60      # Comprehensive mitigation needed
+  medium: 40    # Targeted controls required
+  low: 25       # Standard monitoring sufficient
+  minimal: 0    # Basic compliance adequate
+
+# Output Templates
+output_formats:
+  score_only: "{score}/100"
+  
+  detailed: |
+    Risk Score: {score}/100 ({risk_level})
+    
+    Category Breakdown:
+    {category_scores}
+    
+    Key Risk Factors:
+    {risk_factors}
+    
+    Recommended Actions:
+    {recommendations}
+  
+  executive_summary: |
+    ## AI System Risk Assessment
+    
+    **Overall Risk Score:** {score}/100 ({risk_level})
+    
+    **Executive Summary:** This AI system presents {risk_level} compliance risk based on {framework} assessment criteria.
+    
+    **Primary Concerns:** {top_risks}
+    
+    **Immediate Actions Required:** {critical_actions}
+    
+    **Compliance Framework Alignment:**
+    {framework_compliance}
+
+# Recommendation Templates
+recommendations:
+  critical:
+    - "Immediate legal review required before deployment"
+    - "Comprehensive risk mitigation strategy needed"
+    - "Consider alternative approaches or significant redesign"
+  
+  high:
+    - "Detailed compliance documentation required"
+    - "Independent third-party assessment recommended"
+    - "Implement comprehensive monitoring and controls"
+  
+  medium:
+    - "Strengthen data governance processes"
+    - "Enhance model documentation and explainability"
+    - "Implement regular bias and performance monitoring"
+  
+  low:
+    - "Document current controls and processes"
+    - "Establish routine monitoring procedures"
+    - "Maintain awareness of regulatory updates"
