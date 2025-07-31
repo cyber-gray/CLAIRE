@@ -6,7 +6,7 @@
 
 ## 🚀 One-Line Elevator Pitch
 
-CLAIRE transforms AI compliance from weeks of manual research into seconds of intelligent, cited guidance—helping teams navigate EU AI Act, NIST frameworks, and ISO standards with confidence.
+CLAIRE transforms AI compliance from weeks of manual research into seconds of intelligent, cited guidance - helping teams navigate EU AI Act, NIST frameworks, and ISO standards with confidence.
 
 ---
 
