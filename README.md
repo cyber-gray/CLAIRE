@@ -43,27 +43,29 @@ A GRC analyst needs to assess if their company's new AI-powered customer service
 - Exports to Markdown/PDF for formal documentation
 
 ### 🗣️ **Voice Interface**
-- Wake word activation: **"Hey CLAIRE"**
+- Wake word activation: **"claire"**
 - Natural language compliance queries
-- Text-to-speech responses for hands-free operation
+- ElevenLabs TTS with natural voice synthesis and interruption support
 
 ---
 
 ## 🏗️ Technical Architecture
 
-### Local-First Design
-- **No data leaves your environment** - All processing happens locally
-- **Privacy by design** - Sensitive compliance data stays secure
-- **Offline capable** - Works without internet connectivity
+### Hybrid Cloud-Local Design
+- **Flexible LLM Options** - Azure OpenAI (primary), OpenAI (fallback), Ollama (local)
+- **Professional Voice Synthesis** - ElevenLabs TTS with natural "Hope" voice
+- **Intelligent Fallbacks** - Graceful degradation from cloud to local services
+- **Privacy Conscious** - Local processing option available when needed
 
 ### Technology Stack
 - **Python 3.12+** - Core application framework
 - **LangChain** - Agent orchestration and tool calling
-- **Ollama + llama3.2** - Local LLM inference
+- **Azure OpenAI / OpenAI / Ollama** - Multi-tier LLM infrastructure
+- **ElevenLabs TTS** - Professional voice synthesis with interruption support
+- **Google Speech Recognition** - Voice input processing with ambient noise adjustment
+- **Pygame** - Audio playback control for voice interactions
 - **Chroma DB** - Vector database for document embeddings
 - **HuggingFace Transformers** - Embedding models
-- **PyTTS3** - Text-to-speech synthesis
-- **SpeechRecognition** - Voice input processing
 
 ---
 
@@ -71,8 +73,12 @@ A GRC analyst needs to assess if their company's new AI-powered customer service
 
 ### Prerequisites
 1. **Python 3.12+** installed
-2. **Ollama** running locally with `llama3.2:latest` model
-3. **Microphone** access for voice features
+2. **API Keys** (optional but recommended):
+   - Azure OpenAI (preferred for best performance)
+   - OpenAI (fallback option)
+   - ElevenLabs (for natural voice synthesis)
+3. **Ollama** (optional) - Local LLM fallback with `llama3.2:latest` model
+4. **Microphone** access for voice features
 
 ### Installation
 ```bash
@@ -88,6 +94,15 @@ source venv-claire/bin/activate  # On macOS/Linux
 # Install dependencies
 pip install -r requirements.txt
 
+# Configure environment variables (create .env file)
+cp .env.example .env
+# Edit .env with your API keys:
+# AZURE_OPENAI_API_KEY=your_azure_key
+# AZURE_OPENAI_ENDPOINT=your_azure_endpoint
+# AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment
+# OPENAI_API_KEY=your_openai_key
+# ELEVENLABS_API_KEY=your_elevenlabs_key
+
 # Start CLAIRE
 python main.py
 ```
@@ -95,7 +110,7 @@ python main.py
 ### First Interaction
 ```
 🎤 Listening for wake word...
-> "Hey CLAIRE"
+> "claire"
 CLAIRE: Hello, I'm CLAIRE. How can I assist with your compliance needs?
 > "What are the notification requirements for AI systems under Canada's AIDA?"
 CLAIRE: [Provides detailed regulatory guidance with citations]
