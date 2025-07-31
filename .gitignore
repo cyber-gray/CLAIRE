@@ -61,6 +61,7 @@ env.bak/
 venv.bak/
 
 # CLAIRE specific
+venv-claire/
 exports/
 corpus/
 db/
