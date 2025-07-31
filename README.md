@@ -43,7 +43,7 @@ A GRC analyst needs to assess if their company's new AI-powered customer service
 - Exports to Markdown/PDF for formal documentation
 
 ### 🗣️ **Voice Interface**
-- Wake word activation: **"claire"**
+- Wake word activation: **"Hey CLAIRE"**
 - Natural language compliance queries
 - ElevenLabs TTS with natural voice synthesis and interruption support
 
@@ -110,7 +110,7 @@ python main.py
 ### First Interaction
 ```
 🎤 Listening for wake word...
-> "claire"
+> "Hey CLAIRE"
 CLAIRE: Hello, I'm CLAIRE. How can I assist with your compliance needs?
 > "What are the notification requirements for AI systems under Canada's AIDA?"
 CLAIRE: [Provides detailed regulatory guidance with citations]
