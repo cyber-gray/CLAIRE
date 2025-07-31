@@ -1,6 +1,6 @@
-# 🎯 CLAIRE (Compliance & Legal AI Risk Engine)
+# 🤖 CLAIRE (Compliance & AI Risk Engine)
 
-**CLAIRE** is a voice- and CLI-driven assistant that turns complex AI-governance frameworks into on-demand answers, checklists, and risk scores—right from your terminal or mic.
+**CLAIRE** is a voice- and CLI-driven assistant that turns complex AI-governance frameworks into on-demand answers, checklists, and risk scores - right from your terminal or mic.
 
 ---
 
