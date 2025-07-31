@@ -4,9 +4,16 @@
 
 ---
 
-## 🚀 One-Line Elevator Pitch
+## 🎯 The Problem & Solution
 
-CLAIRE transforms AI compliance from weeks of manual research into seconds of intelligent, cited guidance - helping teams navigate EU AI Act, NIST frameworks, and ISO standards with confidence.
+**The Problem:**
+Organizations struggle with AI compliance because regulatory frameworks like Canada's AIDA, the EU AI Act, NIST AI RMF, and ISO standards are complex, scattered across hundreds of pages, and constantly evolving. Teams spend weeks manually researching requirements, often missing critical details or misinterpreting technical language, leading to compliance gaps and regulatory risk.
+
+**The Solution:**
+CLAIRE transforms this manual, error-prone process into instant, intelligent guidance. Instead of sifting through dense regulatory documents, teams can simply ask questions in natural language and receive precise, cited answers with actionable compliance steps - all while keeping sensitive data completely local and secure.
+
+**Key Use Case:**
+A GRC analyst needs to assess if their company's new AI-powered customer service chatbot meets Canadian AIDA requirements. Instead of spending days reading legal documents, they ask CLAIRE: "What are the compliance requirements for a customer service AI system under AIDA?" and instantly receive specific requirements, risk scores, and a ready-to-use compliance checklist.
 
 ---
 
@@ -22,7 +29,7 @@ CLAIRE transforms AI compliance from weeks of manual research into seconds of in
 
 ### 🔍 **Regulatory Search (`reg_search`)**
 - Semantic search over curated AI legal corpus
-- Covers EU AI Act, NIST AI RMF, OECD principles, ISO 42001
+- Covers Canada's AIDA, EU AI Act, NIST AI RMF, OECD principles, ISO 42001
 - Returns cited, traceable answers with source attribution
 
 ### ⚖️ **Risk Assessment (`assess_ai_risk`)**
@@ -90,7 +97,7 @@ python main.py
 🎤 Listening for wake word...
 > "Hey CLAIRE"
 CLAIRE: Hello, I'm CLAIRE. How can I assist with your compliance needs?
-> "What are high-risk AI systems under the EU AI Act?"
+> "What are the notification requirements for AI systems under Canada's AIDA?"
 CLAIRE: [Provides detailed regulatory guidance with citations]
 ```
 
@@ -120,11 +127,11 @@ reg_search("bias testing NIST AI RMF")
 
 ### Compliance Checklist
 ```python
-# Voice: "Generate an EU AI Act checklist for a high-risk credit scoring system"
+# Voice: "Generate a Canada AIDA checklist for a high-risk automated decision system"
 # or direct tool call:
 generate_compliance_checklist(
-    framework="EU AI Act",
-    system_type="credit_scoring", 
+    framework="Canada AIDA",
+    system_type="automated_decision_system", 
     risk_level="high"
 )
 ```
@@ -156,7 +163,7 @@ CLAIRE/
 
 | Tool | Purpose | Example Usage |
 |------|---------|---------------|
-| `reg_search()` | Search AI legal corpus | `"EU AI Act biometric systems"` |
+| `reg_search()` | Search AI legal corpus | `"Canada AIDA notification requirements"` |
 | `list_available_frameworks()` | Show available standards | List all regulatory frameworks |
 | `assess_ai_risk()` | Detailed risk assessment | Evaluate specific AI system |
 | `quick_risk_check()` | Fast risk screening | Natural language system description |

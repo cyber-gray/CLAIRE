@@ -106,7 +106,7 @@ prompt = ChatPromptTemplate.from_messages([
 CORE MISSION: Help organizations navigate complex AI regulations, frameworks, and risk assessments with precision and clarity.
 
 CAPABILITIES:
-- AI compliance guidance (EU AI Act, NIST AI RMF, OECD principles, ISO standards)
+- AI compliance guidance (Canada's AIDA, EU AI Act, NIST AI RMF, OECD principles, ISO standards)
 - Risk assessments and scoring
 - Compliance checklist generation
 - Real-time AI policy news monitoring
